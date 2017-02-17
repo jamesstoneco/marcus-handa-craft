@@ -20,14 +20,71 @@
 {% extends "_layout" %}
 
 {% block content %}
-	<h1>{{ entry.title }}</h1>
 
-	{{ entry.body }}
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
-{% endblock %}
+
+ <div class="row">
+   <div class="column small-12">
+
+     <div class="hero">
+       <h1 class="text-center">I Design Beautiful Solutions for Solopreneurs, Startups and Developers</h1>
+
+       <p class="text-center">Let’s work together to bring your projects and idea’s to life!</p>
+
+       <p class="text-center">
+         <a href="work.html" class="button hollow">VIEW MY WORK</a>
+       </p>
+     </div>
+     
+   </div>
+ </div>
+
+ <section class="background-grey">
+   <div class="row">
+     <div class="columns small-12">
+
+       <p class="subhead">Why Hire a UI Designer</p>
+
+       <hr class="short">
+
+       <h2>A Stunning UI Will Elevate Your Business</h2>
+
+       <div class="row align-justify">
+         <div class="columns medium-5 large-5 self-align-middle">
+
+           <h3>Startups/Solopreneurs</h3>
+
+           <p class="padded-bottom">First impressions are critical so your interface should look amazing, your reputation depends on it. A clean, modern and intuitive interface will create trust and make an immediate impact to your new business. Don’t sell your amazing idea short with a lacklustre and boring design.</p>
+
+           <h3>Developers</h3>
+
+           <p>Even with a skill list as long as your arm, you’re never guaranteed clients will pick you over the 1000’s of other devs out there. Adding a clean, modern and intuitive interface to your well-coded app or website makes all the difference. Get both right and you’ll land better, higher paying projects.</p>
+
+         </div>
+         <div class="columns medium-7 large-6 self-align-top">
+
+           <img src="http://www.placehold.it/706x500" alt="">
+           
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+
+<!--  {{> featured-work }} -->
+<!--  {{> testimonials }} -->
+<!--  {{> work-together }} -->
+
+<!-- {{ entry.title }}
+{{ entry.body }}
+
+  <ul>
+    {% for entry in craft.entries.section('news').limit(5).find() %}
+      <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    {% endfor %}
+  </ul>
+ -->
+
+ {% endblock %}
+
+
