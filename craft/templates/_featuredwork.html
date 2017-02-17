@@ -9,6 +9,9 @@
 
   {% for entry in craft.entries.section('work').find() %}
 
+  <h1>loop index {{ loop.index }}</h1>
+  <h1>loop index {{ loop.index is even }}</h1>
+
   <div class="row align-middle">
     <div class="column medium-6 medium-order-2">
       {% set image = entry.workPromoImage.first() %}
