@@ -1,53 +1,33 @@
 {#
- # Layout template
+ # Homepage template
  # ---------------
  #
- # This template defines your site’s global layout. It can be
- # “extended” by other templates to fill in the gaps.
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
  #
- # See Twig’s Template Inheritance documentation for more details:
- # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
  #}
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-<head>
-  <meta charset="utf-8" />
-  <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
-  <link rel="home" href="{{ siteUrl }}" />
+{% extends "_layout" %}
 
-  <!-- Typekit Fonts required JS below -->
-  <script src="https://use.typekit.net/kqo0mgq.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+{% block content %}
+  <h1>{{ entry.title }}</h1>
 
-  <link rel="stylesheet" href="{{ siteUrl }}/lib/css/display.css">
-</head>
+  {{ entry.body }}
 
-<body>
-  <div id="container">
-    <header id="header">
-      <h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
-
-      <nav>
-        <ul>
-          <li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main id="content" role="main">
-      {% block content %}
-        <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-        <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-      {% endblock %}
-    </main>
-
-    <footer id="footer">
-      Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://craftcms.com">Craft</a>
-    </footer>
-  </div>
-
-  <script src="{{ siteUrl }}/lib/js/app.js"></script>
-
-</body>
-</html>
+  <h2>Recent News</h2>
+  <ul>
+    {% for entry in craft.entries.section('news').limit(5).find() %}
+      <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
