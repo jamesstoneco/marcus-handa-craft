@@ -16,7 +16,7 @@
       {% endif %}
     </div>
     <div class="column{% if loop.index is even %} medium-order-1{% endif %}">
-      <p class="category">TBA CATEGORY</p>
+      <p class="category">{{ entry.subhead }}</p>
       <h3>{{ entry.title }}</h3>
       <p>{{ entry.workPromoIntro }}</p>
       <p><a href="{{ entry.url }}" class="button hollow">VIEW CASE STUDY</a></p>

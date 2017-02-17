@@ -25,11 +25,11 @@
 <section>
   <div class="row align-center">
     <div class="column medium-8">
-      <p class="subhead">TBA</p>
+      <p class="subhead">{{ workTogetherSubhead }}</p>
       <hr class="short">
-      <h2>TBA</h2>
+      <h2>{{ workTogetherHeadline }}</h2>
 
-      <p class="text-center">TBA</p>
+      <p>{{ workTogetherSupportingCopy }}</p>
 
       {% macro errorList(errors) %}
           {% if errors %}
@@ -68,7 +68,7 @@
           {{ message is defined and message ? errorList(message.getErrors('message')) }}
           </label>
 
-        <center> <input type="submit" value="send" class="button large"> </center>
+        <center> <input type="submit" value="{{ workTogetherCta }}" class="button large"> </center>
 
       </form>
 
