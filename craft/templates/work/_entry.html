@@ -15,65 +15,6 @@
 </div>
 {% endif %}
 
-<section class="background-grey">
-  <div class="row">
-    <div class="column">
-      <p class="subhead">TBA</p>
-      <hr class="short">
-      <h2>{{ entry.title}}</h2>
-      {{ entry.workIntro }}
-    </div>
-  </div>
-</section>
 
-<section>
-  <div class="row">
-    <div class="column">
-      <h3>My Role</h3>
-      {{ entry.workMyRole }}
-
-      <h3>The Challenge</h3>
-      {{ entry.workTheChallenge }}
-
-      {% if entry.workMainColours | length %}
-      <h3>Main Colours</h3>
-      <ul class="menu menu-colors">
-        {% for colour in entry.workMainColours %}
-        <li><a style="background:#{{ colour.hex }};">{{colour.name}}</a></li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-
-      
-    </div>
-  </div>
-</section>
-
-<section class="background-grey">
-  <div class="row">
-    <div class="column">
-      <h3>The Outcome</h3>
-    </div>
-  </div>
-  
-  <div class="row">
-    {% for image in entry.workOutcomeImages %}
-    <div class="column"> <a class="outcome-screenshot" href=""><img src="{{ image.getUrl() }}" alt=""></a> </div>
-    {% endfor %}
-  </div>
-  
-  <div class="row align-center">
-    <div class="column shrink">
-      <a class="outcome-link" href="#">Click image to see larger version</a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="column outcome-text">
-      {{ entry.workOutcomeCopy}}
-    </div>
-  </div>
-
-</section>
 
 {% endblock %}
