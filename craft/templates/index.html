@@ -52,8 +52,10 @@
         <div class="columns medium-5 large-5 self-align-middle">
 
           {% for block in entry.benefits %}
+          {% if block.type == "benefitItem" %}
             <h3>{{ block.benefitItem.headline }}</h3>
             <p>{{ block.benefitItem.copy }}</p>
+          {% endif %}
           {% endfor %}
 
 
