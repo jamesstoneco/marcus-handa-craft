@@ -1,0 +1,29 @@
+<section class="testimonials background-grey">
+  <div class="row">
+    <div class="column small-12">
+      <p class="subhead">{{ workIndex.subhead }}</p>
+      <hr class="short">
+      <h2>{{ workIndex.headline }}</h2>
+
+      {% for person in craft.entries.section('testimonial').find() %}
+      <div class="row align-center">
+        <div class="column medium-8">
+
+          <!-- TODO: [SLIDER] use slick.js -->
+
+          {{ person.copy }}
+        </div>
+      </div>
+
+      <p>{{ person.title }}</p>
+      <p>{{ person.company }}</p>
+
+      {% set image = person.profileImage.first() %}
+      {% if image %}
+      <p> <img class="rounded profile" src="{{ image.getUrl() }}" alt=""> </p>
+      {% endif %}
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
