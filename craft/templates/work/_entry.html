@@ -1,13 +1,17 @@
 {% extends "_layout" %}
 
 {% block content %}
+
+{% set image = entry.workHeaderImage.first() %}
+{% if image %}
 <div class="row">
   <div class="column">
     <div class="work-item-header app">
-      <img src="http://www.placehold.it/429x735" alt="">
+      <img src="{{ image.getUrl() }}" alt="">
     </div>
   </div>
 </div>
+{% endif %}
 
 workHeaderImage => {{ entry.workHeaderImage }} <br>
 workintro => {{ entry.workintro }} <br>
