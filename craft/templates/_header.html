@@ -3,6 +3,15 @@
     <nav class="main">
       <a href="/" class="logo"><img src="{{ siteUrl }}lib/img/logo.svg" alt=""></a>
 
+{% if block.navigation.navigationItem | length %}
+    <ul>
+    {% for item in navigation.navigationItem %}
+         {# Assuming 'text' is the column handle of the text field #}
+        <li>{{ item.name }}</li> 
+    {% endfor %}
+    </ul>
+{% endif %}
+
       <ul class="menu float-right">
       <li class="active"><a href="{{ siteUrl }}">home</a></li>
         <li><a href="{{ siteUrl }}">my work</a></li>
