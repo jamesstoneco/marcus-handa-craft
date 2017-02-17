@@ -64,7 +64,7 @@
         <div class="columns medium-7 large-6 self-align-top">
           {% set image = entry.benefitsImage.first() %}
           {% if image %}
-          <img src="{{ image.url }}" alt="">
+          <img src="{{ image.getUrl() }}" alt="">
           {% endif %}
         </div>
       </div>
