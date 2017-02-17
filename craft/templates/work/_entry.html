@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include "_header" %}
+
 {% set image = entry.workHeaderImage.first() %}
 {% if image %}
 <div class="row">
@@ -16,10 +18,10 @@
 <section class="background-grey">
   <div class="row">
     <div class="column">
-    <p class="subhead">TBA</p>
+      <p class="subhead">{{ entry.workType }}</p>
       <hr class="short">
       <h2>{{ entry.title}}</h2>
-      <p>This is a fun personal project I took on in my spare time. I love watching films so I figured an app that allowed you to share your film recommendations with friends would be something interesting to design.</p>
+      {{ entry.workIntro }}
     </div>
   </div>
 </section>
@@ -28,15 +30,20 @@
   <div class="row">
     <div class="column">
       <h3>My Role</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat veniam tenetur nam nobis, magni mollitia molestias repudiandae quaerat, facilis officia iure, dolores optio maiores voluptatum quam totam illum aut. Qui.</p>
+      {{ entry.workMyRole }}
 
       <h3>The Challenge</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia officiis exercitationem libero earum ad voluptatem deleniti cum sapiente, ipsam et, velit itaque debitis nihil, alias blanditiis possimus dolore. Architecto, assumenda.</p>
+      {{ entry.workTheChallenge }}
 
+      {% if entry.workMainColours | length %}
       <h3>Main Colours</h3>
       <ul class="menu menu-colors">
-        <li><a style="background:#ffffff;">name</a></li>
+        {% for colour in entry.workMainColours %}
+        <li><a style="background:#{{ colour.hex }};">{{colour.name}}</a></li>
+        {% endfor %}
       </ul>
+      {% endif %}
+
       
     </div>
   </div>
@@ -50,9 +57,9 @@
   </div>
   
   <div class="row">
-    <div class="column"> <a class="outcome-screenshot" href=""><img src="http://www.placehold.it/426x758" alt=""></a> </div>
-    <div class="column"> <a class="outcome-screenshot" href=""><img src="http://www.placehold.it/426x758" alt=""></a> </div>
-    <div class="column"> <a class="outcome-screenshot" href=""><img src="http://www.placehold.it/426x758" alt=""></a> </div>
+    {% for asset in entry.workOutcomeImages %}
+    <div class="column"> <a class="outcome-screenshot" href=""><img src="{{ asset.getUrl() }}" alt=""></a> </div>
+    {% endfor %}
   </div>
   
   <div class="row align-center">
@@ -63,9 +70,7 @@
 
   <div class="row">
     <div class="column outcome-text">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque minima dicta quasi, perferendis nihil recusandae iure molestiae natus. Quidem, impedit ex molestias, neque optio non facilis sequi quos corrupti accusamus?</p>
-      <p>Accusamus impedit at voluptas in eos commodi suscipit unde, obcaecati voluptate doloremque minus ab dolorum culpa qui et tenetur perspiciatis nobis ipsam eius neque architecto quod sint, ipsum quia! Quisquam?</p>
-      <p>Ex deserunt omnis temporibus optio, sint repellat expedita ipsum enim dolorum debitis animi ad dolor autem, soluta obcaecati tempora ducimus quibusdam rerum facere quae. Corrupti, ut architecto natus voluptatibus. Commodi.</p>
+      {{ entry.workOutcomeCopy}}
     </div>
   </div>
 
