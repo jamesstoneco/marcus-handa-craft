@@ -31,7 +31,7 @@
       <p class="subhead">{{ entry.subhead}}</p>
       <hr class="short">
       <h1>{{ entry.headline }}</h1>
-      {% set image = entry.benefitsImage.first() %}
+      {% set image = entry.aboutProfileImage.first() %}
       {% if image %}
       <img class="rounded profile" src="{{ image.getUrl() }}" alt="">
       {% endif %}
