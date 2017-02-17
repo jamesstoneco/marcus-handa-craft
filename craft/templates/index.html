@@ -62,20 +62,10 @@
 
         </div>
         <div class="columns medium-7 large-6 self-align-top">
-
-          <img src="http://www.placehold.it/706x500" alt="">
-          {# Fetches the first image #}
           {% set image = entry.benefitsImage.first() %}
-          {# It's good to check if you actually have an image before trying to get the url #}
           {% if image %}
-              {{ image.url }}
-              {# Or alternatively #}
-              {# image.getUrl() #}
-              {# If you want to get a specific transform: #}
-              {# image.getUrl('transformHandle') #}
+          <img src="{{ image.url }}" alt="">
           {% endif %}
-
-          
         </div>
       </div>
     </div>
