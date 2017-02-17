@@ -18,7 +18,7 @@
 <section class="background-grey">
   <div class="row">
     <div class="column">
-      <p class="subhead">{{ entry.workType }}</p>
+      <p class="subhead">TBA</p>
       <hr class="short">
       <h2>{{ entry.title}}</h2>
       {{ entry.workIntro }}
@@ -57,8 +57,8 @@
   </div>
   
   <div class="row">
-    {% for asset in entry.workOutcomeImages %}
-    <div class="column"> <a class="outcome-screenshot" href=""><img src="{{ asset.getUrl() }}" alt=""></a> </div>
+    {% for image in entry.workOutcomeImages %}
+    <div class="column"> <a class="outcome-screenshot" href=""><img src="{{ image.getUrl() }}" alt=""></a> </div>
     {% endfor %}
   </div>
   
