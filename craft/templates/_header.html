@@ -10,7 +10,6 @@
       {% if navigation.navigationItem | length %}
         <ul class="menu float-right">
           {% for item in navigation.navigationItem %}
-            {# Assuming 'text' is the column handle of the text field #}
             <li class="{{ macros.is_active(item.route) }}"><a class="{{ macros.is_button(item.isButton) }}" href="{{ siteUrl }}{{ item.route }}">{{ item.name }}</a></li>
           {% endfor %}
         </ul>
