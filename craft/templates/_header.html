@@ -3,7 +3,7 @@
     <nav class="main">
       <a href="/" class="logo"><img src="{{ siteUrl }}lib/img/logo.svg" alt=""></a>
 
-{% if block.navigation.navigationItem | length %}
+{% if navigation.navigationItem | length %}
     <ul>
     {% for item in navigation.navigationItem %}
          {# Assuming 'text' is the column handle of the text field #}
