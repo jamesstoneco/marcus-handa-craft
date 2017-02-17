@@ -1,33 +1,73 @@
 {#
- # Homepage template
+ # Layout template
  # ---------------
  #
- # When this template gets loaded, it will be because someone has accessed
- # http://yoursite.com/ (without any URI). Craft checks to see if you have
- # a Single section set to be the Homepage (as you do, by default), and
- # loads the section’s Template (this file). A special ‘entry’ variable
- # will already be set for you, assigned to the Homepage entry.
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
  #
- # It's worth noting that even if you didn't have a Homepage Single section,
- # as long as this template remains at craft/templates/index.html, it
- # would still be the one to get loaded when accessing http://yoursite.com/,
- # albeit without an ‘entry’ variable already set for you.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
  #}
 
-{% extends "_layout" %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+  <link rel="home" href="{{ siteUrl }}" />
 
-{% block content %}
-  <h1>{{ entry.title }}</h1>
+  <style type="text/css">
+    body { margin: 50px; font-family: sans-serif; background: #fff; }
+    #container { margin: 0 auto; width: 700px;
+      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
-  {{ entry.body }}
+    #header, #footer { display: block; color: #fff; background: #da5a47; }
+    #header a, #footer a { color: #fff; }
+    #header { border-radius: 7px 7px 0 0; padding: 25px; }
+    #header:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
+    #header a { text-decoration: none; }
+    #header h1 { float: left; margin: 0; font-weight: normal; font-size: 30px; line-height: 1; }
+    #header nav { display: block; float: right; }
+    #header nav ul { margin: 0; list-style-type: none; }
+    #header nav ul li { float: left; margin-left: 20px; }
+    #header nav ul li a { display: block; margin-top: 4px; line-height: 22px; }
+    #header nav ul li a:hover,
+    #header nav ul li a.active { border-bottom: 2px solid #fff; }
+    #header nav ul li a.active { cursor: default; }
 
-  <h2>Recent News</h2>
-  <ul>
-    {% for entry in craft.entries.section('news').limit(5).find() %}
-      <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-    {% endfor %}
-  </ul>
-{% endblock %}
+    #content { display: block; padding: 25px; background: #fff; }
+    #content h1 { margin-top: 0; font-size: 35px; font-weight: bold; }
+    #content a { color: #da5a47; text-decoration: none; }
+    #content a:hover { text-decoration: underline; }
+
+    #footer { border-radius: 0 0 7px 7px; padding: 15px; font-size: 12px; text-align: center; }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+      <h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
+
+      <nav>
+        <ul>
+          <li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="content" role="main">
+      {% block content %}
+        <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+        <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+      {% endblock %}
+    </main>
+
+    <footer id="footer">
+      Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://craftcms.com">Craft</a>
+    </footer>
+  </div>
+</body>
+</html>
