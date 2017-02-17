@@ -1,0 +1,78 @@
+<section class="background-grey about">
+
+  <div class="row align-center">
+    <div class="column medium-8">
+      <p class="subhead">{{ entry.subhead }}</p>
+      <hr class="short">
+      <h1>{{ entry.headline }}</h1>
+
+      <p>{{ entry.body }}</p>
+
+      <div class="button-group-radius">
+        <a href="#" class="button hollow">say hello</a>
+        <a href="#" class="button">project inquiry</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row align-center">
+    <div class="column medium-8">
+      <p class="subhead">TBA</p>
+      <hr class="short">
+      <h2>TBA</h2>
+
+      <p class="text-center">TBA</p>
+
+      {% macro errorList(errors) %}
+          {% if errors %}
+              <ul class="errors">
+                  {% for error in errors %}
+                      <li>{{ error }}</li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      {% endmacro %}
+
+      {% from _self import errorList %}
+
+      <form method="post" action="" accept-charset="UTF-8">
+          {{ getCsrfInput() }}
+          <input type="hidden" name="action" value="contactForm/sendMessage">
+          <input type="hidden" name="redirect" value="contact/thanks">
+
+          <label for="fromName">Your Name
+          <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+          </label>
+          {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+
+          <label for="fromEmail">Your Email
+          <input id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+          {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+          </label>
+
+          <label for="subject">Subject
+          <input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+          {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+          </label>
+
+          <label for="message">Message
+          <textarea rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+          {{ message is defined and message ? errorList(message.getErrors('message')) }}
+          </label>
+
+        <center> <input type="submit" value="send" class="button large"> </center>
+
+      </form>
+
+
+
+    </div>
+  </div>
+
+</section>
+
+
+
+
