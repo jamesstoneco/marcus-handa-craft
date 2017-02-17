@@ -37,5 +37,20 @@
       <h3>The Challenge</h3>
       {{ entry.workTheChallenge }}
 
+      
+      {% if entry.workMainColours | length %}
+      <h3>Main Colours</h3>
+      <ul class="menu menu-colors">
+        {% for colour in entry.workMainColours %}
+        <li><a style="background:#{{ colour.hex }};">{{colour.name}}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      
+    </div>
+  </div>
+</section>
+
 
 {% endblock %}
