@@ -17,7 +17,7 @@ UNCSS_OPTIONS:
 PATHS:
 # path to your site/lib/ dir
 # ---------------------------------------
-  dist: "site/lib/"
+  dist: "public/lib/"
 
 # paths to static assets that aren't images, css, or js
 # ---------------------------------------
