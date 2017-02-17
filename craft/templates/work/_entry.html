@@ -61,24 +61,13 @@
     </div>
   </div>
 
-
-  {% for asset in entry.workOutcomeImages %}
-    <img src="{{ asset.getUrl() }}" />
-{% endfor %}
-
-
-
   <div class="row">
     {% for asset in entry.workOutcomeImages %}
     <div class="column"> <a class="outcome-screenshot" href=""><img src="{{ asset.getUrl() }}" alt=""></a> </div>
     {% endfor %}
   </div>
   
-
-
-
-
-    <div class="row align-center">
+  <div class="row align-center">
     <div class="column shrink">
       <a class="outcome-link" href="#">Click image to see larger version</a>
     </div>
