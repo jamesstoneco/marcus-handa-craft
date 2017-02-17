@@ -62,6 +62,18 @@
   </div>
 
 
+  {% for asset in entry.workOutcomeImages %}
+    <img src="{{ asset.getUrl() }}" />
+{% endfor %}
+
+
+
+  <div class="row">
+    {% for asset in entry.workOutcomeImages %}
+    <div class="column"> <a class="outcome-screenshot" href=""><img src="{{ asset.getUrl() }}" alt=""></a> </div>
+    {% endfor %}
+  </div>
+  
 
 
 
