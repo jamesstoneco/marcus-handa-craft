@@ -27,8 +27,6 @@
   ],
   "dependencies": {
     "foundation-sites": "~6.3.0",
-    "jquery": "~2.2.4",
-    "motion-ui": "~1.2.2",
-    "what-input": "^4.0.4"
+    "motion-ui": "~1.2.2"
   }
 }
