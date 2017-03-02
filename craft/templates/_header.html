@@ -1,16 +1,38 @@
-<div class="row">
-  <div class="column small-12">
-    <nav class="main">
-      <a href="{{ siteUrl }}" class="logo"><img src="{{ siteUrl }}lib/img/logo.svg" alt=""></a>
+<div class="off-canvas position-right" id="mobileNav" data-transition="overlap" data-off-canvas>
 
-      {% if navigation.navigationItem | length %}
+  <!-- Close button -->
+  <button class="close-button" aria-label="Close menu" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <!-- Menu -->
+  <nav class="mobile">
+    {% if navigation.navigationItem | length %}
+    <ul class="vertical menu">
+      {% for item in navigation.navigationItem %}
+      <li class="{% if craft.request.firstSegment == item.route %}active{% endif %}"><a href="{{ siteUrl }}{{ item.route }}">{{ item.name }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+  <!-- Your page content lives here -->
+
+  <div class="row">
+    <div class="column small-12">
+      <nav class="main">
+        <a href="{{ siteUrl }}" class="logo"><img src="{{ siteUrl }}lib/img/logo.svg" alt=""></a>
+
+        {% if navigation.navigationItem | length %}
         <ul class="menu float-right">
           {% for item in navigation.navigationItem %}
-            <li class="{% if craft.request.firstSegment == item.route %}active{% endif %}"><a class="{% if item.isButton | length %}button{% endif %}" href="{{ siteUrl }}{{ item.route }}">{{ item.name }}</a></li>
+          <li class="{% if craft.request.firstSegment == item.route %}active{% endif %}"><a class="{% if item.isButton | length %}button{% endif %}" href="{{ siteUrl }}{{ item.route }}">{{ item.name }}</a></li>
           {% endfor %}
         </ul>
-      {% endif %}
+        {% endif %}
 
-    </nav>
+      </nav>
+    </div>
   </div>
-</div>

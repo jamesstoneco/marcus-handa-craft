@@ -1,29 +1,10 @@
-{#
- # Homepage template
- # ---------------
- #
- # When this template gets loaded, it will be because someone has accessed
- # http://yoursite.com/ (without any URI). Craft checks to see if you have
- # a Single section set to be the Homepage (as you do, by default), and
- # loads the section’s Template (this file). A special ‘entry’ variable
- # will already be set for you, assigned to the Homepage entry.
- #
- # It's worth noting that even if you didn't have a Homepage Single section,
- # as long as this template remains at craft/templates/index.html, it
- # would still be the one to get loaded when accessing http://yoursite.com/,
- # albeit without an ‘entry’ variable already set for you.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
- #}
+{% extends "_layout" %}
 
- {% extends "_layout" %}
+{% block content %}
 
- {% block content %}
+{% include "_header" %}
 
- {% include "_header" %}
-
- <div class="row">
+<div class="row">
   <div class="column small-12">
 
     <div class="hero">
@@ -32,10 +13,13 @@
       <p class="text-center"> {{ entry.heroSubhead }} </p>
 
       <p class="text-center">
-        <a href="work.html" class="button hollow"> {{ entry.heroCta }} </a>
+        <a href="work.html" class="button hollow">
+        <img src="{{ siteUrl }}lib/img/button-icon-circle-down.svg" alt="">
+         {{ entry.heroCta }} 
+         </a>
       </p>
     </div>
-    
+
   </div>
 </div>
 
