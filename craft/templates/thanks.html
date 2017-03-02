@@ -20,9 +20,16 @@
 
       <br>
 
-      <p> <a href="/">If you are not redirected automatically in 10 seconds please click here</a> </p>
+      <p> <a href="/">{{ entry.subhead }}</a> </p>
     </div>
   </div>
 </section>
+
+<script language="javascript">
+  window.setTimeout(function() {
+    window.location.href = "/"
+  }, 10000);
+</script>
+
 
 {% endblock %}
