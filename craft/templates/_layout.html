@@ -9,15 +9,20 @@
  # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
  #}
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-<head>
+ <!DOCTYPE html>
+ <html class="no-js" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+ <head>
   <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
   <link rel="home" href="{{ siteUrl }}" />
 
   <!-- Typekit Fonts required JS below -->
-  <script src="https://use.typekit.net/rmj8rad.js"></script>
+  <!-- not working below, 404 error -->
+  <!--   <script src="https://use.typekit.net/rmj8rad.js"></script> -->
+  <!--   <script>try{Typekit.load({ async: true });}catch(e){}</script> -->
+  <script src="https://use.typekit.net/kqo0mgq.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   <link rel="stylesheet" href="{{ siteUrl }}/lib/css/display.css">
@@ -26,13 +31,13 @@
 <body>
 
   {% block content %}
-    <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-    <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+  <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+  <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
   {% endblock %}
 
-  </div> <!-- CLOSE .off-canvas-content for mobile nav wrap - DO NOT REMOVE --> <!-- matched to _header.html partial -->
+</div> <!-- CLOSE .off-canvas-content for mobile nav wrap - DO NOT REMOVE --> <!-- matched to _header.html partial -->
 
-  <script src="{{ siteUrl }}/lib/js/app.js"></script>
+<script src="{{ siteUrl }}/lib/js/app.js"></script>
 
 </body>
 </html>
