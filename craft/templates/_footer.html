@@ -4,23 +4,21 @@
       <a href="{{ siteUrl }}" class="logo"><img src="{{ siteUrl }}lib/img/logo.svg" alt=""></a>
     </div>
 
-    <div class="column large-6 medium-8">
+    <div class="column small-12 medium-8 large-6">
       <nav class="footer">
         <div class="menu-centered">
-          <ul class="menu">
-            {% if navigation.navigationItem | length %}
-            <ul class="menu float-right">
-              {% for item in navigation.navigationItem %}
-              <li class="{% if craft.request.firstSegment == item.route %}active{% endif %}"><a href="{{ siteUrl }}{{ item.route }}">{{ item.name }}</a></li>
-              {% endfor %}
-            </ul>
-            {% endif %}
+          {% if navigation.navigationItem | length %}
+          <ul class="menu vertical medium-horizontal menu">
+            {% for item in navigation.navigationItem %}
+            <li class="{% if craft.request.firstSegment == item.route %}active{% endif %}"><a href="{{ siteUrl }}{{ item.route }}">{{ item.name }}</a></li>
+            {% endfor %}
           </ul>
+          {% endif %}
         </div>  
       </div>
     </nav>
     <div class="column">
-      <nav class="social">
+      <nav class="social menu-centered">
         <ul class="menu">
           {% for social in craft.entries.section('socialBar').find() %}
           {% set image = social.socialIcon.first() %}
