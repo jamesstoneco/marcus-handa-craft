@@ -1,4 +1,6 @@
-<section class="testimonials background-grey">
+<h1>craft.request.firstSegment => {{ craft.request.firstSegment }}</h1>
+
+<section class="testimonials{% if craft.request.firstSegment == '' %} background-grey{% endif %}">
   <div class="row">
     <div class="column small-12">
       <p class="subhead">{{ testimonialHeadline.subhead }}</p>
