@@ -1,7 +1,7 @@
 <h1>craft.request.firstSegment => {{ craft.request.firstSegment }}</h1>
 
 
-<section{% if craft.request.firstSegment == 'about' %} class="background-grey"{% endif %}>
+<section{% if not craft.request.firstSegment == 'about' %} class="background-grey"{% endif %}>
   <div class="row">
     <div class="column small-12">
       <p class="subhead">{{ workTogetherPanel.workTogetherSubhead }}</p>
