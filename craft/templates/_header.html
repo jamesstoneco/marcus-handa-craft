@@ -20,13 +20,15 @@
 <div class="off-canvas-content" data-off-canvas-content>
   <!-- Your page content lives here -->
 
+  <a class="mobile-nav-button show-for-small-only" data-toggle="mobileNav"><img src="{{ siteUrl }}lib/img/menu-icon.svg" alt=""></a>
+
   <div class="row">
     <div class="column small-12">
       <nav class="main">
         <a href="{{ siteUrl }}" class="logo"><img src="{{ siteUrl }}lib/img/logo.svg" alt=""></a>
 
         {% if navigation.navigationItem | length %}
-        <ul class="menu float-right">
+        <ul class="menu float-right hide-for-small-only">
           {% for item in navigation.navigationItem %}
           <li class="{% if craft.request.firstSegment == item.route %}active{% endif %}"><a class="{% if item.isButton | length %}button{% endif %}" href="{{ siteUrl }}{{ item.route }}">{{ item.name }}</a></li>
           {% endfor %}
