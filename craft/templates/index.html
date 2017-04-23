@@ -8,12 +8,13 @@
   <div class="column small-12">
 
     <div class="hero">
+      <div id="particles-js"></div>
       <h1 class="text-center"> {{ entry.heroHeadline }} </h1>
 
       <p class="text-center"> {{ entry.heroSubhead }} </p>
 
       <p class="text-center">
-      <a id="js-trigger-work" class="button hollow">
+        <a id="js-trigger-view-work" class="button hollow">
           <img src="{{ siteUrl }}lib/img/button-icon-circle-down.svg" alt="">
           {{ entry.heroCta }} 
         </a>
@@ -33,19 +34,20 @@
 
       <h2> {{ entry.benefitsHeadline }} </h2>
 
-      <div class="row align-justify">
-        <div class="columns small-12 medium-5 large-5 self-align-middle small-order-2">
+      <div class="row-special">
+        <div class="content">
 
           {{ entry.benefitsCopy }}
 
         </div>
-        <div class="columns small-12 medium-7 large-6 self-align-top small-order-1">
+        <div class="image-flush-right-column">
           {% set image = entry.benefitsImage.first() %}
           {% if image %}
           <img src="{{ image.getUrl() }}" alt="">
           {% endif %}
         </div>
       </div>
+      
     </div>
   </div>
 </section>
