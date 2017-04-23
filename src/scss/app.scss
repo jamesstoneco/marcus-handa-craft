@@ -45,7 +45,7 @@
 // @include foundation-meter-element;
 // @include foundation-slider;
 // @include foundation-sticky;
-// @include foundation-reveal;
+@include foundation-reveal;
 // @include foundation-switch;
 // @include foundation-table;
 // @include foundation-tabs;
@@ -75,8 +75,33 @@
 @import "components/hr";
 @import "components/hero";
 @import "components/footer";
+@import "components/flex-fill";
 @import "components/featured-work";
+@import "components/marvel-embed";
 @import "components/testimonials";
 @import "components/promo-block-work";
 
+@import "components/slick";
+@import "components/slick-theme";
+
 // @import "styleguide";
+
+
+// particle prototype below
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: 50% 50%;
+  z-index: -9999;
+}
