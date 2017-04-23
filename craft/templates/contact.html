@@ -10,26 +10,26 @@
     <div class="column medium-8">
       <p class="subhead">{{ entry.subhead }}</p>
       <hr class="short">
-      <h1>{{ entry.headline }}</h1>
+      <h1 class="less-spacing">{{ entry.headline }}</h1>
 
-      <p>{{ entry.body }}</p>
+      <p class="text-center">{{ entry.body }}</p>
 
       <div class="button-group-radius">
         <a href="mailto:hello@marcushanda.co" class="button hollow">say hello</a>
-        <a href="#" class="button">project inquiry</a>
+        <a id="js-trigger-project-inquiry" class="button">project inquiry</a>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="js-marker-project-inquiry">
   <div class="row align-center">
     <div class="column medium-8">
       <p class="subhead">{{ entry.workTogetherSubhead }}</p>
       <hr class="short">
-      <h2>{{ entry.workTogetherHeadline }}</h2>
+      <h2 class="less-spacing">{{ entry.workTogetherHeadline }}</h2>
 
-      <p>{{ entry.workTogetherSupportingCopy }}</p>
+      <p class="text-center padded-bottom">{{ entry.workTogetherSupportingCopy }}</p>
 
       {% macro errorList(errors) %}
           {% if errors %}
@@ -48,27 +48,23 @@
           <input type="hidden" name="action" value="contactForm/sendMessage">
           <input type="hidden" name="redirect" value="contact/thanks">
 
-          <label for="fromName">Your Name
+          <label for="fromName">Your Name<span class="required">*</span></label>
           <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
-          </label>
           {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
 
-          <label for="fromEmail">Your Email
-          <input id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+          <label for="fromEmail">Your Email </label>
+          <input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
           {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
-          </label>
 
-          <label for="subject">Subject
+          <label for="subject">Subject </label>
           <input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
           {{ message is defined and message ? errorList(message.getErrors('subject')) }}
-          </label>
 
-          <label for="message">Message
+          <label for="message">Message </label>
           <textarea rows="10" cols="40" id="message" name="message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
           {{ message is defined and message ? errorList(message.getErrors('message')) }}
-          </label>
 
-        <center> <input type="submit" value="{{ workTogetherCta }}" class="button large"> </center>
+        <center> <input type="submit" value="{{ workTogetherCta }}" class="button cta min140 flush-bottom"> </center>
 
       </form>
 
