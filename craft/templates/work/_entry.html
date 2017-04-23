@@ -33,9 +33,12 @@
   <div class="row limit-width">
     <div class="column">
       <h3>My Role</h3>
+
+      <!-- TODO: handle .less-spacing on paragraph gen below -->
       {{ entry.workMyRole }}
 
       <h3>The Challenge</h3>
+      <!-- TODO: handle .less-spacing on paragraph gen below -->
       {{ entry.workTheChallenge }}
 
 
@@ -64,7 +67,7 @@
 
   <div class="row limit-width">
     {% for asset in entry.workOutcomeImages %}
-    <div class="column"> <a class="outcome-screenshot" href=""><img src="{{ asset.getUrl() }}" alt=""></a> </div>
+    <div class="column"> <a class="outcome-screenshot"><img src="{{ asset.getUrl() }}" alt=""></a> </div>
     {% endfor %}
   </div>
   
