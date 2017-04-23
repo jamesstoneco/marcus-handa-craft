@@ -1,4 +1,11 @@
 {
 	"buttons": ["format","bold","italic","lists","link","file","horizontalrule"],
-	"plugins": ["source","fullscreen"]
+	"plugins": ["source","fullscreen"],
+  "formattingAdd": {
+      "para-intro": {
+          "title": "Paragraph Less Spacing",
+          "args": ["p", "class", "less-spacing", "toggle"]
+      }
+  }
+
 }
