@@ -1,29 +1,40 @@
 <section class="testimonials{% if craft.request.firstSegment == '' %} background-grey{% endif %}">
   <div class="row">
     <div class="column small-12">
+
       <p class="subhead">{{ testimonialHeadline.subhead }}</p>
       <hr class="short">
-      <h2>{{ testimonialHeadline.headline }}</h2>
+      <h2 class="less-spacing">{{ testimonialHeadline.headline }}</h2>
 
-      {% for person in craft.entries.section('testimonial').find() %}
-      <div class="row align-center">
-        <div class="column medium-8">
+      <div class="testimonial-slider">
+
+
+        {% for person in craft.entries.section('testimonial').find() %}
+
+        <div>
+
 
           <!-- TODO: [SLIDER] use slick.js -->
 
-          {{ person.body }}
+          <p class="limit-width-center">{{ person.body }}</p>
+
+
+          {% set image = person.profileImage.first() %}
+          {% if image %}
+          <center> <!-- HACK -->
+            <img class="rounded profile" src="{{ image.getUrl() }}" alt="">
+          </center>
+          {% endif %}
+
+          <p class="name">{{ person.title }}</p>
+          <p class="company">{{ person.company }}</p>
+
         </div>
-      </div>
 
-      <p>{{ person.title }}</p>
-      <p>{{ person.company }}</p>
+        {% endfor %}
 
-      {% set image = person.profileImage.first() %}
-      {% if image %}
-      <p> <img class="rounded profile" src="{{ image.getUrl() }}" alt=""> </p>
-      {% endif %}
+      </div> <!-- end .testimonial-slider -->
 
-      {% endfor %}
     </div>
   </div>
 </section>
