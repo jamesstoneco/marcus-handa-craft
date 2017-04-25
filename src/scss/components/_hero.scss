@@ -2,6 +2,12 @@
   text-align: center;
   padding-top: $brand-spacing-level-3;
   padding-bottom: $brand-spacing-level-3;
+  position: relative;
+
+  @include breakpoint(small only) {
+    padding-top: $brand-spacing-level-1;
+    padding-bottom: $brand-spacing-level-1;
+  }
   h1 { margin-bottom: 12px; }
   p { margin-bottom: 20px; }
 
@@ -19,5 +25,13 @@
 
   h1 strong {
     color: $primary-color;
+    font-weight: $brand-font-weight-medium;
+  }
+
+  .button {
+    font-size: 13px;
+    background: $brand-white;
+    padding: 13px 30px;
+    transition: border-color $ui-transition-speed;
   }
 }

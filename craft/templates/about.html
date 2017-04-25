@@ -7,10 +7,12 @@
  <section class="background-grey about">
 
   <div class="row align-center">
-    <div class="column medium-8">
+    <div class="column medium-8 limit-width">
+
       <p class="subhead">{{ entry.subhead}}</p>
       <hr class="short">
-      <h1>{{ entry.headline }}</h1>
+      <h1 class="less-spacing">{{ entry.headline }}</h1>
+      
       {% set image = entry.aboutProfileImage.first() %}
       {% if image %}
       <img src="{{ image.getUrl() }}" alt="">

@@ -1,26 +1,39 @@
-{#
- # 404 template
- # ------------
- #
- # This template is loaded whenever Craft cannot figure out how to
- # respond to an incoming request. No setup is involved to get your
- # 404 page working; you just need to call it 404.html and put it
- # at the root of your craft/templates/ folder.
- #
- # You can also create 400.html, 403.html, 500.html, and 503.html
- # templates if you’d like. If Craft can’t find an error template
- # to match the error code, it will just use the one in
- # craft/app/templates/ instead.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
- #}
-
 {% extends "_layout" %}
 {% set title = "404" %}
 
 {% block content %}
-	<h1>Page not found</h1>
 
-	<p>What’s worse, a hilarious 404 page can’t be found either.</p>
+{% include "_header" %}
+
+<section class="flex-fill-404 background-grey">
+  <div class="row">
+    <div class="columns small-12">
+      
+      <p class="subhead">Whoops!</p>
+      
+      <hr class="short">
+      
+      <h2 class="less-spacing">404 Page Not Found</h2>
+      
+      <p class="text-center" style="margin-bottom:24px;">Why not check out some of my latest work while your here!</p>
+      
+    </div>
+  </div>
+  <div class="row">
+
+  {% for entry in craft.entries.section('work').limit(4) %}
+    <div class="column small-12 medium-3 promo-block-work">
+      {% set image = entry.workPromoImage.first() %}
+      {% if image %}
+      <a href="{{ entry.url }}"><img src="{{ image.getUrl() }}" alt="{{ entry.title }}"></a>
+      {% endif %}
+      <h3>{{ entry.title }}</h3>
+      <a href="{{ entry.url }}" class="button hollow flush-bottom-medium-up">view case study</a>
+    </div>
+    {% endfor %}
+
+  </div>
+  
+</section>
+
 {% endblock %}
