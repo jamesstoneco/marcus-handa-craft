@@ -43,7 +43,7 @@
       <h3>Main Colours</h3>
       <ul class="menu menu-colors">
         {% for colour in entry.workMainColours %}
-        <li><a {% if item.Outline | length %}class="outline" {% endif %} style="background:#{{ colour.hex }};">{{colour.name}}</a></li>
+        <li><a {% if item.outline | length %}class="outline" {% endif %} style="background:#{{ colour.hex }};">{{colour.name}}</a></li>
         {% endfor %}
       </ul>
       {% endif %}
