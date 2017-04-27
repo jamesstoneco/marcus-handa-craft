@@ -33,20 +33,17 @@
   <div class="row limit-width">
     <div class="column">
       <h3>My Role</h3>
-
-      <!-- TODO: handle .less-spacing on paragraph gen below -->
-      {{ entry.workMyRole }}
+      <p class="less-spacing">{{ entry.workMyRole }}</p>
 
       <h3>The Challenge</h3>
-      <!-- TODO: handle .less-spacing on paragraph gen below -->
-      {{ entry.workTheChallenge }}
+      <p class="less-spacing">{{ entry.workTheChallenge }}</p>
 
 
       {% if entry.workMainColours | length %}
       <h3>Main Colours</h3>
       <ul class="menu menu-colors">
         {% for colour in entry.workMainColours %}
-        <li><a style="background:#{{ colour.hex }};">{{colour.name}}</a></li>
+        <li><a {% if item.Outline | length %}class="outline" {% endif %} style="background:#{{ colour.hex }};">{{colour.name}}</a></li>
         {% endfor %}
       </ul>
       {% endif %}
