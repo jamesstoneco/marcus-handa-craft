@@ -76,11 +76,13 @@ p.category {
     .content { 
       @include flex-grid-column(12, $grid-column-gutter);
       order: 2;
+      padding: 0;
     }
     .image-flush-right-column {
       @include flex-grid-column(12, $grid-column-gutter);
       padding-right: 0 !important;
       order: 1;
+      padding: 0;
       img { 
         min-width: 100%; 
         margin-bottom: 20px;

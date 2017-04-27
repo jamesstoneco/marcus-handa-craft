@@ -13,6 +13,10 @@ $work-item-site-width-actual: 700px;
   &.app img {
     width: $work-item-app-width-actual;
     clip: rect(0px,$work-item-app-width-actual,$work-item-app-height-crop,0px);
+    @include breakpoint(small only) {
+      position: absolute;
+      bottom: 0;
+    }
   }
   &.site { height: $work-item-site-height-crop; }
   &.site img {
