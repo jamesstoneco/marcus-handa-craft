@@ -10,7 +10,8 @@
 return array(
 
     // Base site URL
-    'siteUrl' => null,
+    ‘siteUrl’ => ‘https://www.marcushanda.co',
+    ‘baseUrl’ => ‘https://www.marcushanda.co’,
 
     // Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
     'environmentVariables' => array(),
